@@ -1,0 +1,25 @@
+_object_
+  {satisfied
+    {_object_
+      {com.scorm.golfsamples.sequencing.randomtest.content_completed
+        {_object_
+          {173
+            {_object_ {198 satisfied}}
+          }
+        }
+      }
+    }
+   measure
+    {_object_ {}}
+   status 
+    {_object_
+      {198
+        {_object_ 
+          {173
+            {_object_ {satisfied unknown measure 0 completed unknown}}
+          }
+        }
+      }
+    }
+  }
+

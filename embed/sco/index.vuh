@@ -1,0 +1,23 @@
+ad_page_contract {
+
+    Serve a course file from the content repository.  URL consists of the object id of
+    the course followed by the relative URL.
+    
+    @cvs-id $Id$
+}
+
+set id [lindex [split [ad_conn path_info] /] 0]
+set resource_url [join [lrange [split [ad_conn path_info] /] 1 end] /]
+
+permission::require_permission \
+    -party_id [ad_conn user_id] \
+    -object_id $id \
+    -privilege read
+
+db_1row get_folder_id {}
+
+cr_write_content -item_id [content::item::get_id \
+                              -item_path $resource_url \
+                              -root_folder_id $folder_id]
+
+ad_script_abort

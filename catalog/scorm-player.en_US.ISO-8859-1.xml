@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="scorm-player" locale="en_US" charset="ISO-8859-1">
+              
+<msg key="Collapse_All">Collapse All</msg>
+<msg key="Continue">Continue</msg>
+<msg key="Exit">Exit</msg>
+<msg key="Exit_All">Exit All</msg>
+<msg key="Expand_All">Expand All</msg>
+<msg key="Hide_Log">Hide Log</msg>
+<msg key="Hide_Tree">Hide Tree</msg>
+<msg key="Javascript_Required">Javascript must be enabled.</msg>
+<msg key="Show_Log">Show Log</msg>
+<msg key="Show_Tree">Show Tree</msg>
+<msg key="Previous">Previous</msg>
+<msg key="Start">Start</msg>
+<msg key="Suspend_All">Suspend All</msg>
+<msg key="seq_abandon">An Abandon Navigation Request was received and processed.</msg>
+<msg key="seq_abandonall">The current course session has been abandoned.</msg>
+<msg key="seq_blocked">The sequencing session was blocked.</msg>
+<msg key="seq_close">Please close the player-window.</msg>
+<msg key="seq_coursecomplete">The current course is completed.</msg>
+<msg key="seq_deadlock">The sequencer is in a deadlock.</msg>
+<msg key="seq_endsession">The current course session has ended.</msg>
+<msg key="seq_error">An internal error in the sequencer occurred.</msg>
+<msg key="seq_invalidnavreq">The sequencer received an invalid request.</msg>
+<msg key="seq_nothing">There is no activity to deliver.</msg>
+<msg key="seq_toc">From the Table Of Contents on the left, choose an activity to begin the course.</msg>
+
+</message_catalog>

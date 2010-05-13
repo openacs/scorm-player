@@ -1,0 +1,43 @@
+/* These were inline in the original ilias player template, so the background image
+   files could be munged dynamically.  We'll support theming in some other way.
+*/
+
+.asset {
+  padding-left: 18px;
+  background: url("/resources/scorm-player/images/asset_s.gif") 0 0 no-repeat;
+} 
+
+.completed {
+  padding-left: 18px;
+  background: url("/resources/scorm-player/images/completed_s.gif") 0 0 no-repeat;
+} 
+
+.not_attempted {
+  padding-left: 18px;
+  background: url("/resources/scorm-player/images/not_attempted_s.gif") 0 0 no-repeat;
+}
+
+.running {
+  padding-left: 18px;
+  background: url("/resources/scorm-player/images/running_s.gif") 0 0 no-repeat;
+}
+
+.incomplete {
+  padding-left: 18px;
+  background: url("/resources/scorm-player/images/incomplete_s.gif") 0 0 no-repeat;
+}
+
+.passed {
+  padding-left: 18px;
+  background: url("/resources/scorm-player/images/passed_s.gif") 0 0 no-repeat;
+}
+
+.failed {
+  padding-left: 18px;
+  background: url("/resources/scorm-player/images/failed_s.gif") 0 0 no-repeat;
+}
+
+.browsed {
+  padding-left: 18px;
+  background: url("/resources/scorm-player/images/browsed.gif") 0 0 no-repeat;
+}

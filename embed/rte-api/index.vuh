@@ -1,0 +1,59 @@
+ad_page_contract -form [ns_parsequery [ns_conn query]] {
+
+    Dispatch for the various commands associated with the ilias PHP base class
+    ilSAHSPresentationGUI.  Ilias generates URLs to a global ilias.php script,
+    which then does class/method dispatch.  In this rewrite to the OpenACS
+    framework, I've given the class its own directory and use this virtual
+    handler script to dispatch the method calls, which are declared in our
+    tcl lib directory.
+
+    This script is responsible for any permission checking that's required,
+    and for returning the method results to the user's browser.
+    
+    The API is passed the course id as a query variable in all cases, GET or POST.
+    This is the only query variable passed.  We parse the query string into our
+    own ns_set and pass that to ad_page_contract, because this works for either
+    method.
+
+    POST data, such as is used to commit CMI data, is passed directly as a JSON
+    string rather than as a form variable, and in ilias is read via the php:://input
+    stream.
+
+    Fortunately, in AOLserver, ns_conn content gives us that data ... the various
+    handlers in the API are passed this automatically.
+    
+    @cvs-id $Id$
+} {
+    id:naturalnum,notnull
+    page:optional
+} -validate {
+    check_id {
+        if { ![db_0or1row check_id {}] } {
+            ad_complain "object \"$id\" is not a scorm course."
+        }
+    }
+}
+
+permission::require_permission \
+    -party_id [ad_conn user_id] \
+    -object_id $id \
+    -privilege read
+
+set cmd \
+    scorm_player::rte_api::[lindex [split [ad_conn path_info] "/"] end]_[ad_conn method]
+
+lappend cmd -id $id -user_id [ad_conn user_id]
+
+if { [ns_conn content] ne "" } {
+    lappend cmd -data [util::json::parse [ns_conn content]]
+}
+
+if { [info exists page] } {
+    lappend cmd -page $page
+}
+
+# Default to text/javascript since most of our api procs return JSON strings
+ns_set put [ad_conn outputheaders] content-type text/javascript
+set output [eval $cmd]
+ns_return 200 [ns_set get [ad_conn outputheaders] content-type] $output
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="scorm-player" locale="es_ES" charset="ISO-8859-1">
+              
+<msg key="Collapse_All">Contraer todo</msg>
+<msg key="Continue">continuar</msg>
+<msg key="Exit">salir</msg>
+<msg key="Exit_All">salir de todo</msg>
+<msg key="Expand_All">Expandir todo</msg>
+<msg key="Hide_Log">Ocultar log</msg>
+<msg key="Hide_Tree">ocultar árbol</msg>
+<msg key="Show_Log">Mostrar log</msg>
+<msg key="Show_Tree">mostrar árbol</msg>
+<msg key="Previous">anterior</msg>
+<msg key="Start">comenzar</msg>
+<msg key="Suspend_All">suspender todo</msg>
+<msg key="seq_abandon">Se recibió y procesó un "Abandon Navigation Request".</msg>
+<msg key="seq_abandonall">La sesión del curso actual ha sido abandonada.</msg>
+<msg key="seq_blocked">La sesión de secuenciación fue bloqueada.</msg>
+<msg key="seq_close">Por favor cierre la ventana del visor.</msg>
+<msg key="seq_coursecomplete">El curso actual ha sido completado.</msg>
+<msg key="seq_deadlock">El sequenciador está en un 'deadlock'.</msg>
+<msg key="seq_endsession">La sesión del curso actual ha terminado.</msg>
+<msg key="seq_error">Ocurrió un error interno en el secuenciador.</msg>
+<msg key="seq_invalidnavreq">El sequenciador recibió una petición inválida.</msg>
+<msg key="seq_nothing">No hay ejercicio para enviar.</msg>
+<msg key="seq_toc">Desde la tabla de contenidos en la izquierda, escoja una actividad para empezar el curso.</msg>
+
+</message_catalog>

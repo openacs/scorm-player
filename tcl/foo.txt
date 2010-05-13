@@ -1,0 +1,41 @@
+_object_
+   {schema
+     {_object_
+       {package 
+         {_array_ {user_id learner_name cp_package_id mode credit}}
+        node
+         {_array_ {accesscount accessduration accessed activityAbsoluteDuration
+                   activityAttemptCount activityExperiencedDuration activityProgressStatus
+                   attemptAbsoluteDuration attemptCompletionAmount attemptCompletionStatus
+                   attemptExperiencedDuration attemptProgressStatus audio_captioning
+                   audio_level availableChildren cmi_node_id completion completion_status
+                   completion_threshold cp_node_id created credit delivery_speed entry exit
+                   language launch_data learner_name location max min mode modified
+                   progress_measure raw scaled scaled_passing_score session_time
+                   success_status suspend_data total_time user_id}}
+        comment
+          {_array_ {cmi_comment_id cmi_node_id comment timestamp location sourceIsLMS}}
+        correct_response
+          {_array_ {cmi_correct_response_id cmi_interaction_id pattern}}
+        interaction
+          {_array_ {cmi_interaction_id cmi_node_id description id latency learner_response
+                    result timestamp type weighting}}
+        objective
+          {_array_ {cmi_interaction_id cmi_node_id cmi_objective_id completion_status
+                    description id max min raw scaled progress_measure success_status scope}}
+       }
+     }
+    data
+      {_object_
+        {package
+          {_array_ {{_array_ {173 {Don Baccus} 198 normal credit}}}}
+         node {_array_ {}}
+         comment {_array_ {}}
+         correct_response {_array_ {}}
+         interaction {_array_ {}}
+         objective {_array_ {}}
+        }
+      }
+   }
+
+
