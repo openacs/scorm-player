@@ -10723,8 +10723,17 @@ function buildNavTree(rootAct,name,tree){
 						sub.href="#this";
 						sub.target="_self";
 						sub.labelElId=ITEM_PREFIX + rootAct.item[i].id;
-					}	
-				}
+					} else {
+						// DRB
+						// If the item is invisible, the original Ilias RTE leaves sub undefined.
+						// This leads to the first nested yahoo treeview call building a node
+						// with a null tree, which then causes a crash on the next nested yahoo
+						// treeview call.  This assignment in essence makes the invisible node
+						// not appear in the tree, but causes all the children to be properly
+						// rendered.
+                   		sub = attach;
+                	}
+				}	
 				//further childs
 				if(rootAct.item[i].item) {
 					build(rootAct.item[i],sub);

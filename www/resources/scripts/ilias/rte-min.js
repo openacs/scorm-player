@@ -2243,7 +2243,7 @@ elm=all("ilLog");if(elm)
 elm=all("res");if(elm)
 {elm.style.height=h;}}
 function buildNavTree(rootAct,name,tree){var tocView=all('treeView');treeYUI=new YAHOO.widget.TreeView(tocView);var root=treeYUI.getRoot();if(mlaunch.mNavState.mChoice!=null){var id=rootAct.id;if(rootAct.isvisible==true&&typeof(mlaunch.mNavState.mChoice[id])=="object"){var rootNode=new YAHOO.widget.TextNode(rootAct.title,root,true);rootNode.href="#this";rootNode.target="_self";rootNode.labelElId=ITEM_PREFIX+rootAct.id;}}
-build(rootAct,rootNode);function build(rootAct,attach){if(rootAct.item){for(var i=0;i<rootAct.item.length;i++){var id=rootAct.item[i].id;if(mlaunch.mNavState.mChoice!=null){if(rootAct.item[i].isvisible==true&&typeof(mlaunch.mNavState.mChoice[id])=="object"){var sub=new YAHOO.widget.TextNode({label:rootAct.item[i].title,id:ITEM_PREFIX+rootAct.item[i].id},attach,true);sub.href="#this";sub.target="_self";sub.labelElId=ITEM_PREFIX+rootAct.item[i].id;}}
+build(rootAct,rootNode);function build(rootAct,attach){if(rootAct.item){for(var i=0;i<rootAct.item.length;i++){var id=rootAct.item[i].id;if(mlaunch.mNavState.mChoice!=null){if(rootAct.item[i].isvisible==true&&typeof(mlaunch.mNavState.mChoice[id])=="object"){var sub=new YAHOO.widget.TextNode({label:rootAct.item[i].title,id:ITEM_PREFIX+rootAct.item[i].id},attach,true);sub.href="#this";sub.target="_self";sub.labelElId=ITEM_PREFIX+rootAct.item[i].id;}else{sub=attach;}}
 if(rootAct.item[i].item){build(rootAct.item[i],sub);}}}}
 treeYUI.draw();treeYUI.expandAll();}
 function abortNavigation()
