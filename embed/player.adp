@@ -33,11 +33,10 @@
     <tr valign="top">
       <td style="width:25%" width="25%" id="leftView">
         <div id="treeView"></div>
-        <if @show_log_p@>
-          <div id="ilLog" style="font-size:9px; white-space:pre; overflow:scroll;">
-            <pre id="ilLogPre" style="font-family:Verdana,Arial,Helvetica,sans-serif;"></pre>
-          </div>
-        </if>
+        <div id="ilLog" style="font-size:9px; white-space:pre; overflow:scroll;">
+          <pre id="ilLogPre" style="font-family:Verdana,Arial,Helvetica,sans-serif;"></pre>
+        </div>
+          
         <div id="treeControls" style="vertical-align:middle; margin-left:5px">
           <if @show_log_p@>
             <a id="toggleLog" href="#"
