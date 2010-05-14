@@ -16,8 +16,16 @@ permission::require_permission \
 
 db_1row get_folder_id {}
 
-cr_write_content -item_id [content::item::get_id \
-                              -item_path $resource_url \
-                              -root_folder_id $folder_id]
+set item_id [content::item::get_id \
+                -item_path $resource_url \
+                -root_folder_id $folder_id]
+
+# Give a nice error if the item doesn't exist, return its content if it does.
+
+if { $item_id eq "" } {
+    ns_return 200 text/html [scorm_player::rte_api::specialPage_GET -id $id -page _NOTHING_]
+} else {
+    cr_write_content -item_id $item_id
+}
 
 ad_script_abort

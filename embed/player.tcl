@@ -34,12 +34,9 @@ template::head::add_script -type text/javascript -src $event_url -order 2
 template::head::add_script -type text/javascript -src $treeview_url -order 3
 template::head::add_script -type text/javascript \
     -src /resources/scorm-player/scripts/ilias/rteconfig.js -order 4
-
-# Unfortunately the RTE begins by inspecting the document, which fails if it's loaded
-# in the HEAD section of the document, even with defer set.  That code should be
-# put in the init function so it's not executed until it's called from the body.  This
-# also prevents me from putting my overwriting functions in rte-changes.js into the
-# HEAD.  At least Yahoo does it right ...
+template::head::add_script -type text/javascript -src $rte_url -order 5
+template::head::add_script -type text/javascript \
+    -src /resources/scorm-player/scripts/openacs/rte-changes.js -order 6
 
 set body(class) loadingState
 set body(id) scormplayer

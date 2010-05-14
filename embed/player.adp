@@ -60,9 +60,9 @@
       
   </table>
 
-  <script type="text/javascript" src="@rte_url@"></script>
-  <script type="text/javascript" src="/resources/scorm-player/scripts/openacs/rte-changes.js">
-  </script>
+  <!--script type="text/javascript" src="@rte_url@"></script-->
+  <!--script type="text/javascript" src="/resources/scorm-player/scripts/openacs/rte-changes.js">
+  </script-->
 
   <script type="text/javascript">
     //<![CDATA[
