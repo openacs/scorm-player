@@ -248,7 +248,7 @@ ad_proc -private scorm_player::rte_api::cmi_POST {
     # Browse mode allows one to navigate through a course without generating tracking
     # data.  Useful for checking out a course before making it public.
 
-    if { [db_string get_lesson_mode {}] eq "browse"] } {
+    if { [db_string get_lesson_mode {}] eq "browse" } {
         return
     }
 
