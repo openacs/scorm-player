@@ -11,7 +11,7 @@
     
     <version name="0.1d1" url="http://openacs.org/repository/download/apm/scorm-player-0.1d1.apm">
         <owner url="mailto:dhogaza@pacifier.com">Don Baccus</owner>
-        <summary>Plays SCORM courses.</summary>
+        <summary>Embeddable package that plays SCORM courses.</summary>
         <description format="text/plain">
           This package provides an embeddable SCORM player.  It is based on the Ilias
           JavaScript RTE, no Java required.
@@ -20,6 +20,7 @@
 
         <provides url="scorm-player" version="0.1d1"/>
         <requires url="scorm-core" version="0.1d1"/>
+        <requires url="ajaxhelper" version="0.87d"/>
         <requires url="acs-kernel" version="5.6.0a1"/>
 
         <callbacks>

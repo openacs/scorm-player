@@ -63,7 +63,7 @@ ad_proc scorm_player::get_yahoo_url {} {
 
 } {
     set script [expr { [scorm_player::debugging_enabled_p] ? "yahoo.js" : "yahoo-min.js" }]
-    return /resources/scorm-player/scripts/yui/yahoo/$script
+    return /resources/ajaxhelper/yui/yahoo/$script
 }
 
 ad_proc scorm_player::get_event_url {} {
@@ -75,7 +75,7 @@ ad_proc scorm_player::get_event_url {} {
 
 } {
     set script [expr { [scorm_player::debugging_enabled_p] ? "event.js" : "event-min.js" }]
-    return /resources/scorm-player/scripts/yui/event/$script
+    return /resources/ajaxhelper/yui/event/$script
 }
 
 ad_proc scorm_player::get_treeview_url {} {
