@@ -11752,7 +11752,13 @@ function onItemDeliver(item) // onDeliver called from sequencing process (delive
 	if (item.parameters != "" && envEditor==false) {
 		item.parameters = "?"+ item.parameters;
 	} 
-	setResource(item.id, item.href+randNumber+item.parameters, this.config.package_url);
+
+    // DRB: Ilias's version doesn't honor a resource's base attribute, which is non-compliant.
+    if (item.base == null) {
+		setResource(item.id, item.href+randNumber+item.parameters, this.config.package_url);
+    } else {
+		setResource(item.id, item.href+randNumber+item.parameters, item.base);
+    }
 }
 
 
