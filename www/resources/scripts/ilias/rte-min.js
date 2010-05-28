@@ -2451,7 +2451,7 @@ if(item.exit=="time-out"||item.exit=="logout"){err=currentAPI.SetValueIntern("cm
 var envEditor=this.config.envEditor;var randNumber="";if(envEditor==1){randNumber="?rand="+Math.floor(Math.random()*1000000)+"&";}
 if(item.parameters==null){item.parameters="";}
 if(item.parameters!=""&&envEditor==false){item.parameters="?"+item.parameters;}
-setResource(item.id,item.href+randNumber+item.parameters,this.config.package_url);}
+if(item.base==null){setResource(item.id,item.href+randNumber+item.parameters,this.config.package_url);}else{setResource(item.id,item.href+randNumber+item.parameters,item.base);}}
 function syncSharedCMI(item){var mStatusVector=msequencer.getObjStatusSet(item.id);var mObjStatus=new ADLObjStatus();var obj;var err
 if(mStatusVector!=null){for(i=0;i<mStatusVector.length;i++){var idx=-1;mObjStatus=mStatusVector[i];var objCount=currentAPI.GetValueIntern("cmi.objectives._count");for(var j=0;j<objCount;j++){var obj="cmi.objectives."+j+".id";var nr=currentAPI.GetValueIntern(obj);if(nr==mObjStatus.mObjID){idx=j;break;}}
 if(idx!=-1){obj="cmi.objectives."+idx+".success_status";if(mObjStatus.mStatus.toLowerCase()=="satisfied")
