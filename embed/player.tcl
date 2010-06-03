@@ -27,7 +27,6 @@ set event_url [scorm_player::get_event_url]
 set treeview_url [scorm_player::get_treeview_url]
 
 template::head::add_css -href /resources/scorm-player/styles/player.css
-template::head::add_css -href /resources/scorm-player/styles/delos.css
 
 template::head::add_script -type text/javascript -src $yahoo_url -order 1
 template::head::add_script -type text/javascript -src $event_url -order 2
