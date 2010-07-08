@@ -4,15 +4,15 @@
   <table {VAL_DISPLAY} id="toolbarTable" width="100%" height="100%" style="height: 100%" cellspacing="0" cellpadding="0" border="0" summary="">
     <tr height="1%">
       <td class="submit">  
-        <div style="clear:both; margin: 1px 8px 3px 8px;" class="il_ContainerItemCommands">
+        <div style="clear:both; margin: 1px 8px 3px 8px;">
                 
-          <a target="_self" href="#" class="il_ContainerItemCommand" onclick="toggleView();" id="treeToggle">#scorm-player.Hide_Tree#</a>
-          <a target="_self" href="#" class="il_ContainerItemCommand" id="navStart">#scorm-player.Start#</a>
-          <a target="_self" href="#" class="il_ContainerItemCommand" id="navExit">#scorm-player.Exit#</a>
-          <a target="_self" href="#" class="il_ContainerItemCommand" id="navExitAll"">#scorm-player.Exit_All#</a>
-          <a target="_self" href="#" class="il_ContainerItemCommand" id="navSuspendAll">#scorm-player.Suspend_All#</a>
-          <a target="_self" href="#" class="il_ContainerItemCommand" id="navPrevious">#scorm-player.Previous#</a>
-          <a target="_self" href="#" class="il_ContainerItemCommand" id="navContinue">#scorm-player.Continue#</a>
+          <a target="_self" href="#" class="button" onclick="toggleView();" id="treeToggle">#scorm-player.Hide_Tree#</a>
+          <a target="_self" href="#" class="button" id="navStart">#scorm-player.Start#</a>
+          <a target="_self" href="#" class="button" id="navExit">#scorm-player.Exit#</a>
+          <a target="_self" href="#" class="button" id="navExitAll"">#scorm-player.Exit_All#</a>
+          <a target="_self" href="#" class="button" id="navSuspendAll">#scorm-player.Suspend_All#</a>
+          <a target="_self" href="#" class="button" id="navPrevious">#scorm-player.Previous#</a>
+          <a target="_self" href="#" class="button" id="navContinue">#scorm-player.Continue#</a>
         </div>
       </td>
     </tr>

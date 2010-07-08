@@ -146,3 +146,46 @@ ad_proc scorm_player::get_scorm_init_args {
 
     return [util::json::gen $init_object]
 }
+
+ad_proc scorm_player::interval_to_seconds {
+    -timestamp:required
+} {
+    Convert a SCORM 2004 ISO 8601 interval to seconds.  The particular format used in
+    SCORM 2004 is not direclty supported by Tcl, Tcllib, or PostgreSQL so we gotta convert
+    it ourselves.
+} {
+    if { $timestamp eq "" } {
+        return -code error "timestamp can not be an empty string"
+    }
+    set multipliers {31557600 2629800 86400 3600 60}
+    set seconds 0
+    set index 1
+    if { [string first P $timestamp] == 0 } {
+        foreach delimiter {Y M D} {
+            if { [regexp "(\[\\d\]+)$delimiter" [string range $timestamp $index end] match digits] } {
+                incr seconds [expr {[lindex $multipliers 0] * $digits}]
+                incr index [string length $match]
+            }
+            set multipliers [lrange $multipliers 1 end]
+        }
+        if { [string range $timestamp $index $index] eq "T" } {
+            incr index
+            foreach delimiter {H M} {
+                if { [regexp "(\[\\d\]+)$delimiter" [string range $timestamp $index end] match digits] } {
+                    incr seconds [expr {[lindex $multipliers 0] * $digits}]
+                    incr index [string length $match]
+                }
+                set multipliers [lrange $multipliers 1 end]
+            }
+            if { [regexp {([\d]+[\.]?[\d]*)S} [string range $timestamp $index end] match digits] } {
+                incr seconds [expr {round($digits)}]
+                incr index [string length $match]
+            }
+        }
+    }
+    if { $index != [string length $timestamp]} {
+        return -code error "timestamp \"$timestamp\" is poorly formed"
+    }
+    return $seconds
+}
+

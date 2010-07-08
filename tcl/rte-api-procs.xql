@@ -60,7 +60,8 @@
   <fullquery name="scorm_player::rte_api::gobjective_POST.update_satisfied">      
     <querytext>
       update cmi_gobjective
-      set satisfied = :value
+      set satisfied = :value,
+        c_timestamp = current_timestamp
       where objective_id = :objective_id 
         and user_id = :user_id
         and scope_id = :scope_id
@@ -70,7 +71,8 @@
   <fullquery name="scorm_player::rte_api::gobjective_POST.update_measured">      
     <querytext>
       update cmi_gobjective
-      set measure = :value
+      set measure = :value,
+        c_timestamp = current_timestamp
       where objective_id = :objective_id 
         and user_id = :user_id
         and scope_id = :scope_id
@@ -82,7 +84,8 @@
       update cmi_gobjective
       set measure = :measure,
         satisfied = :satisfied,
-        status = :completed
+        status = :completed,
+        c_timestamp = current_timestamp
       where objective_id = :objective_id 
         and user_id = :user_id
         and scope_id = :scope_id
@@ -92,18 +95,18 @@
   <fullquery name="scorm_player::rte_api::gobjective_POST.insert_satisfied">      
     <querytext>
       insert into cmi_gobjective
-        (objective_id, user_id, satisfied, scope_id) 
+        (objective_id, user_id, satisfied, scope_id, c_timestamp) 
       values
-        (:objective_id, :user_id, :value, :scope_id)
+        (:objective_id, :user_id, :value, :scope_id, current_timestamp)
     </querytext>
   </fullquery>
 
   <fullquery name="scorm_player::rte_api::gobjective_POST.insert_measured">      
     <querytext>
       insert into cmi_gobjective
-        (objective_id, user_id, measure, scope_id) 
+        (objective_id, user_id, measure, scope_id, c_timestamp) 
       values
-        (:objective_id, :user_id, :value, :scope_id)
+        (:objective_id, :user_id, :value, :scope_id, current_timestamp)
     </querytext>
   </fullquery>
 

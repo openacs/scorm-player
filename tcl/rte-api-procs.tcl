@@ -300,6 +300,11 @@ ad_proc -private scorm_player::rte_api::cmi_POST {
                     TIMESTAMP {
                         set data_row [lreplace $data_row $i $i [db_string now {}]]
                     }
+                    INTERVAL {
+                        set data_row [lreplace $data_row $i $i \
+                            "[scorm_player::interval_to_seconds \
+                                -timestamp [lindex $data_row $i]] seconds"]
+                    }
                     CPNODEREF {
                         set cp_node_id [lindex $data_row $i]
                         if { ![db_0or1row check_cp_node_id {}] } {

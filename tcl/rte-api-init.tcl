@@ -77,8 +77,9 @@ nsv_set scorm_schema node_table \
      {completion_status W} {completion_threshold W} {cp_node_id CPNODEREF} {created W}
      {credit W} {delivery_speed W} {entry W} {exit W} {language W} {launch_data W}
      {learner_name LEARNERNAMEREF} {location W} {max W} {min W} {mode W} {modified W}
-     {progress_measure W} {raw W} {scaled W} {scaled_passing_score W} {session_time W}
-     {success_status W} {suspend_data W} {total_time W} {user_id USERREF} {timestamp TIMESTAMP}}
+     {progress_measure W} {raw W} {scaled W} {scaled_passing_score W} {session_time INTERVAL}
+     {success_status W} {suspend_data W} {total_time INTERVAL} {user_id USERREF}
+     {timestamp TIMESTAMP}}
 
 nsv_set scorm_schema comment_table \
     {{cmi_comment_id KEY} {cmi_node_id KEYREF} {comment W} {timestamp TIMESTAMP} {location W}
