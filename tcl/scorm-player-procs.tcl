@@ -162,7 +162,7 @@ ad_proc scorm_player::interval_to_seconds {
     set index 1
     if { [string first P $timestamp] == 0 } {
         foreach delimiter {Y M D} {
-            if { [regexp "(\[\\d\]+)$delimiter" [string range $timestamp $index end] match digits] } {
+            if { [regexp "^(\[\\d\]+)$delimiter" [string range $timestamp $index end] match digits] } {
                 incr seconds [expr {[lindex $multipliers 0] * $digits}]
                 incr index [string length $match]
             }
@@ -171,13 +171,13 @@ ad_proc scorm_player::interval_to_seconds {
         if { [string range $timestamp $index $index] eq "T" } {
             incr index
             foreach delimiter {H M} {
-                if { [regexp "(\[\\d\]+)$delimiter" [string range $timestamp $index end] match digits] } {
+                if { [regexp "^(\[\\d\]+)$delimiter" [string range $timestamp $index end] match digits] } {
                     incr seconds [expr {[lindex $multipliers 0] * $digits}]
                     incr index [string length $match]
                 }
                 set multipliers [lrange $multipliers 1 end]
             }
-            if { [regexp {([\d]+[\.]?[\d]*)S} [string range $timestamp $index end] match digits] } {
+            if { [regexp {^([\d]+[\.]?[\d]*)S} [string range $timestamp $index end] match digits] } {
                 incr seconds [expr {round($digits)}]
                 incr index [string length $match]
             }
