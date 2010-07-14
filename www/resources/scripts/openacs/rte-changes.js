@@ -92,8 +92,10 @@ function onDocumentClick (e)
     // state.
     else if (target.tagName == 'A' && !target.className.match(/disabled/))
     {
-        save_global_objectives();
-        save();
+        launchNavType('ExitAll');    
+//        syncCMIADLTree();
+//        save_global_objectives();
+//        save();
         return;
     } 
     // End OpenACS change.
