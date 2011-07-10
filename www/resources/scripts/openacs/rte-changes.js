@@ -45,7 +45,7 @@ function onDocumentClick (e)
     //integration of ADL Sqeuencer
 
     // OpenACS change: Ilias version of this if statement ignores any A tag with no ID set
-    if (target.tagName !== 'A' ||  target.className.match(/disabled/) )
+    if (target.tagName !== 'A' || target.className.match(/disabled/) )
     {
         // ignore clicks on other elements than A
         // or non identified elements or disabled elements (non active Activities)
@@ -90,7 +90,7 @@ function onDocumentClick (e)
 
     // OpenACS change to allow non-player navigation to work, but only after saving
     // state.
-    else if (target.tagName == 'A' && !target.className.match(/disabled/))
+    else if (target.tagName == 'A' && !target.className.match(/disabled/))
     {
         launchNavType('ExitAll');    
 //        syncCMIADLTree();
