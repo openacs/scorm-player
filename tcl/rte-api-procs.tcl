@@ -76,7 +76,7 @@ ad_proc scorm_player::rte_api::getSuspend_GET {
 } {
     if { [db_0or1row get_suspend_data {}] } {
         db_dml delete_suspend_data {}
-        return $data
+        return [util::json::sql_values_to_json_values $data]
     }
     return
 }
@@ -202,6 +202,10 @@ ad_proc -private scorm_player::rte_api::cmi_GET {
 
         set attribute_names {}
 
+        # list of modifiers for the attributes.
+
+        set attribute_modifiers {}
+
         # select_attributes is the list of munged attribute names to use in the rowset
         # descriptor for the query.
 
@@ -212,8 +216,9 @@ ad_proc -private scorm_player::rte_api::cmi_GET {
         # ignored for cp_package, which is very much a special case.
 
         foreach attribute $attribute_list {
-            foreach {name dummy} $attribute {}
+            foreach {name modifier} $attribute {}
             lappend attribute_names $name
+            lappend attribute_modifiers $modifier
             lappend select_attributes cmi_${table}.[scorm_core::db_name -name $name]
         }
         lappend schema $table [util::json::array::create $attribute_names]
@@ -222,6 +227,19 @@ ad_proc -private scorm_player::rte_api::cmi_GET {
         lappend data $table
         set rows {}
         foreach row $rowset {
+            for { set i 0} { $i < [llength $row] } { incr i } {
+                switch [lindex $attribute_modifiers $i] {        
+                    INTERVAL {
+                        set row [lreplace $row $i $i \
+                            [scorm_player::seconds_to_interval -timestamp [lindex $row $i]]]
+                    }
+                    default {
+                        if { [lindex $row $i] == "" } {
+                            set row [lreplace $row $i $i null]
+                        }
+                    }
+                }
+            }
             lappend rows [util::json::array::create $row]
         }
         lappend data [util::json::array::create $rows]

@@ -189,3 +189,20 @@ ad_proc scorm_player::interval_to_seconds {
     return $seconds
 }
 
+ad_proc scorm_player::seconds_to_interval {
+    -timestamp:required
+} {
+    Convert a database interval into a SCORM 2004 style interval.
+
+    Note: only works for hours, minutes and fractional seconds thus far.
+} {
+    if { $timestamp eq "" } {
+        return null
+    }
+    set splits [split $timestamp :]
+    if { [llength $splits] > 3 } {
+        return --code error \
+            "scorm_player::seconds_to_interval only handles hours, minutes, seconds"
+    }
+    return "PT[lindex $splits 0]H[lindex $splits 1]M[lindex $splits 2]S"
+}
