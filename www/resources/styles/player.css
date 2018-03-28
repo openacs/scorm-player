@@ -94,14 +94,14 @@
     background: url(/resources/scorm-player/images/tn.gif) 0 0 no-repeat; 
 }
 
-/* first or middle sibling, collapsable */
+/* first or middle sibling, collapsible */
 .ygtvtm {
     width:16px; height:22px; 
     cursor:pointer ;
     background: url(/resources/scorm-player/images/tm.gif) 0 0 no-repeat; 
 }
 
-/* first or middle sibling, collapsable, hover */
+/* first or middle sibling, collapsible, hover */
 .ygtvtmh {
     width:16px; height:22px; 
     cursor:pointer ;
@@ -128,14 +128,14 @@
     background: url(/resources/scorm-player/images/ln.gif) 0 0 no-repeat; 
 }
 
-/* Last sibling, collapsable */
+/* Last sibling, collapsible */
 .ygtvlm {
     width:16px; height:22px; 
     cursor:pointer ;
     background: url(/resources/scorm-player/images/lm.gif) 0 0 no-repeat; 
 }
 
-/* Last sibling, collapsable, hover */
+/* Last sibling, collapsible, hover */
 .ygtvlmh {
     width:16px; height:22px; 
     cursor:pointer ;
