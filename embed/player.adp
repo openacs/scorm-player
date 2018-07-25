@@ -38,7 +38,7 @@
         </div>
           
         <div id="treeControls" style="vertical-align:middle; margin-left:5px">
-          <if @show_log_p@>
+          <if @show_log_p;literal@ true>
             <a id="toggleLog" href="#"
                 onclick="toggleLog('#scorm-player.Hide_Log#','#scorm-player.Show_Log#');"
                 style="font-size:11px;">
@@ -67,7 +67,7 @@
   <script type="text/javascript">
     //<![CDATA[
       Date.remoteOffset = (new Date()).getTime()
-      <if @show_log_p@>
+      <if @show_log_p;literal@ true>
         var disable_all_logging=false,disable_sequencer_logging=true;
       </if>
       <else>
